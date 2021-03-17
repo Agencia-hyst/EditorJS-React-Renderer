@@ -28,7 +28,7 @@ const ParagraphOutput = ({ data, style, config }) => {
 
   if( config.forceTargetBlank )
   {
-    content.replace( /<a href/g, "<a target='_blank' href" );
+    content = content.replace( /<a href/g, "<a target='_blank' href" );
   }
 
   return content ? <p style={ paragraphStyle }>{ ReactHtmlParser(content) }</p> : '';
