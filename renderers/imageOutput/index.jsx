@@ -39,7 +39,7 @@ const ImageOutput = ({ data, style, config }) => {
 
   return (
     <figure style={ figureStyle }>
-      <img src={ data.file.url } alt={ data.caption || '' } style={ imageStyle } />
+      <img src={ data.file.url } alt={ data.alt ?? data.caption ?? '' } style={ imageStyle } />
       { data.caption && <figcaption style={ figcaptionStyle }>{ ReactHtmlParser(data.caption) }</figcaption> }
     </figure>
   );
