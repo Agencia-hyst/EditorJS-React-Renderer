@@ -17,7 +17,6 @@ import rawOutputStyle from './rawOutputStyle';
 //#endregion
 
 const RawOutput = ({ data, style, config }) => {
-  console.log(data);
   if (!data || !data.embed) return '';
   if (!style || typeof style !== 'object') style = {};
 
@@ -27,7 +26,7 @@ const RawOutput = ({ data, style, config }) => {
 
   return (
     <div style={ rawStyle }>
-      { ReactHtmlParser(data)}
+      { ReactHtmlParser(data.html)}
     </div>
   );
 };
