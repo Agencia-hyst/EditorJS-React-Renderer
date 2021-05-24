@@ -39,7 +39,9 @@ const Output = ({ data, style, config }) => {
   if (!style || typeof style !== 'object') style = {};
   if (!config || typeof config !== 'object') config = {};
 
-  return data.blocks.map((block, index) => {
+  console.log('DATA::', data, style);
+
+  const r = data.blocks.map((block, index) => {
     switch (block.type) {
       case 'codeBox': return <CodeBoxOutput key={ index } data={ block.data } style={ style.codeBox || {}} config={ config.codeBox || {}} />;
       case 'header': return <HeaderOutput key={ index } data={ block.data } style={ style.header || {}} config={ config.header || {}} />;
@@ -61,6 +63,10 @@ const Output = ({ data, style, config }) => {
       default: return '';
     }
   });
+
+  console.log('BLOCKSSSS:', r);
+
+  return r;
 };
 
 export {
