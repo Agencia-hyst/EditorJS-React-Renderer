@@ -16,22 +16,18 @@ import ReactHtmlParser from 'react-html-parser';
 import rawOutputStyle from './rawOutputStyle';
 //#endregion
 
-const supportedStyles = ['video', 'figure', 'figcaption'];
-
 const RawOutput = ({ data, style, config }) => {
   if (!data || !data.embed) return '';
   if (!style || typeof style !== 'object') style = {};
 
-  supportedStyles.forEach(customStyle => {
-    if (!style[customStyle] || typeof style[customStyle] !== 'object') style[customStyle] = {};
-  });
+  console.log(data);
 
-  const figureStyle = config.disableDefaultStyle ? style.figure : { ...rawOutputStyle.figureStyle, ...style.figure };
+  const rawStyle = config.disableDefaultStyle ? style : rawOutputStyle.style;
 
   return (
-    <figure style={ figureStyle }>
-      { ReactHtmlParser(data.) } //AQUI VAI O HTML PAULOTARSO
-    </figure>
+    <div style={ rawStyle }>
+      { ReactHtmlParser(data)}
+    </div>
   );
 };
 
