@@ -17,10 +17,11 @@ import rawOutputStyle from './rawOutputStyle';
 //#endregion
 
 const RawOutput = ({ data, style, config }) => {
+  console.log(data);
   if (!data || !data.embed) return '';
   if (!style || typeof style !== 'object') style = {};
 
-  console.log(data);
+  
 
   const rawStyle = config.disableDefaultStyle ? style : rawOutputStyle.style;
 
