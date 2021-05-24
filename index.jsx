@@ -39,9 +39,7 @@ const Output = ({ data, style, config }) => {
   if (!style || typeof style !== 'object') style = {};
   if (!config || typeof config !== 'object') config = {};
 
-  console.log('DATA::', data, style);
-
-  const r = data.blocks.map((block, index) => {
+  return data.blocks.map((block, index) => {
     switch (block.type) {
       case 'codeBox': return <CodeBoxOutput key={ index } data={ block.data } style={ style.codeBox || {}} config={ config.codeBox || {}} />;
       case 'header': return <HeaderOutput key={ index } data={ block.data } style={ style.header || {}} config={ config.header || {}} />;
@@ -57,16 +55,11 @@ const Output = ({ data, style, config }) => {
       case 'quote': return <QuoteOutput key={ index } data={ block.data } style={ style.quote || {}} config={ config.quote || {}} />;
       case 'warning': return <WarningOutput key={ index } data={ block.data } style={ style.warning || {}} config={ config.warning || {}} />;
       case 'delimiter': return <DelimiterOutput key={ index } style={ style.delimiter || {}} config={ config.delimiter || {}} />;
-      //PAULO TARSO - tem que ver o nome do tipo se é esse mesmo vvvv
-      case 'raw': return <RawOutput key={ index } style={ style.raw || {}} config={ config.raw || {}} />;
+      case 'raw': return <RawOutput data={ block.data } key={ index } style={ style.raw || {}} config={ config.raw || {}} />;
 
       default: return '';
     }
   });
-
-  console.log('BLOCKSSSS:', r);
-
-  return r;
 };
 
 export {

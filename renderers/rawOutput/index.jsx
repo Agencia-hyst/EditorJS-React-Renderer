@@ -20,8 +20,6 @@ const RawOutput = ({ data, style, config }) => {
   if (!data || !data.html) return '';
   if (!style || typeof style !== 'object') style = {};
 
-  console.log('HTMLLL:::',data.html);
-
   const rawStyle = config.disableDefaultStyle ? style : rawOutputStyle.style;
 
   return (
