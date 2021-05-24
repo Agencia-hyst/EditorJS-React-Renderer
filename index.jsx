@@ -31,6 +31,7 @@ import WarningOutput from './renderers/warningOutput/index.jsx';
 import TableOutput from './renderers/tableOutput/index.jsx';
 import DelimiterOutput from './renderers/delimiterOutput/index.jsx';
 import CodeBoxOutput from './renderers/codeBoxOutput/index.jsx';
+import RawOutput from './renderers/rawOutput/index.jsx';
 //#endregion
 
 const Output = ({ data, style, config }) => {
@@ -54,6 +55,8 @@ const Output = ({ data, style, config }) => {
       case 'quote': return <QuoteOutput key={ index } data={ block.data } style={ style.quote || {}} config={ config.quote || {}} />;
       case 'warning': return <WarningOutput key={ index } data={ block.data } style={ style.warning || {}} config={ config.warning || {}} />;
       case 'delimiter': return <DelimiterOutput key={ index } style={ style.delimiter || {}} config={ config.delimiter || {}} />;
+      //PAULO TARSO - tem que ver o nome do tipo se é esse mesmo vvvv
+      case 'raw': return <RawOutput key={ index } style={ style.raw || {}} config={ config.raw || {}} />;
 
       default: return '';
     }
