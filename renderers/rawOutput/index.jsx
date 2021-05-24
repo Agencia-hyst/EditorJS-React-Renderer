@@ -17,7 +17,7 @@ import rawOutputStyle from './rawOutputStyle';
 //#endregion
 
 const RawOutput = ({ data, style, config }) => {
-  if (!data || !data.embed) return '';
+  if (!data || !data.html) return '';
   if (!style || typeof style !== 'object') style = {};
 
   console.log('HTMLLL:::',data.html);
